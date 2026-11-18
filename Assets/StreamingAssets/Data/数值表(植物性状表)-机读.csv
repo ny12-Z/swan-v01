@@ -1,0 +1,13 @@
+traitId,traitName,category,effectKey,value,radius,unit,v01Active,note
+G01,高产,产出,yieldAdd,2,0,个,1,收获时产量直接加2
+G02,速生,时间,growthRateMul,2,0,倍,1,生长速率×2等价于时间-50%; 与config traitSpeedMul.G02=2.0一致
+G03,耐旱,环境,plantIntakeMul,0.5,0,倍,1,只作用植物吸水PlantIntake; 不碰地形蒸发
+G04,喜水,环境,plantIntakeMul,1.5,0,倍,1,与G03冲突时按先后顺序取先手; 未定义优先级
+G04,喜水,产出,yieldAdd,1,0,个,1,喜水的水耗代价换来的产量补偿
+G05,固氮,环境,soilNutrientPerStep,1,0,点,1,给脚下格子加养分; 会自然把格子推进到下一个养分档
+G06,深根,环境,intakeRadius,2,2,格,0,从半径2格内取水; 需要邻居遍历 v0.2再做
+G07,防风,环境,evaporationMul,0.5,3,倍,0,降低周围3格的水分自然流失
+G08,产热,特殊,tempAdd,10,1,摄氏度,0,一次性加热还是每环境步加热未定义; 每步加会爆表
+G09,驱虫,特殊,pestGuard,1,3,布尔,0,虫害系统L09推迟; 先留字段
+G10,易燃,特殊,autoIgniteTemp,50,0,摄氏度,1,温度过线即自燃; 由L03执行烧毁与养分+20
+G11,变异,特殊,mutationWeightMul,2,0,倍,0,杂交系统推迟; traits用数组已留位

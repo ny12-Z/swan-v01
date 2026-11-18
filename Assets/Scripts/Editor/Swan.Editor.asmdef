@@ -1,0 +1,19 @@
+{
+    "name": "Swan.Editor",
+    "rootNamespace": "Swan.EditorTools",
+    "references": [
+        "Swan.Core",
+        "Swan.Game"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

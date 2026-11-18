@@ -1,0 +1,48 @@
+# ---- Unity 生成物（不要进仓库）----
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# 本工程的打包产物（约 100 MB，用 tools/build.ps1 现场生成）
+/Builds/
+
+# ---- 由 Unity / IDE 自动生成----
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vs/
+.idea/
+.consulo/
+
+# ---- 系统垃圾 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 崩溃/缓存 ----
+sysinfo.txt
+*.stackdump
+crashlytics-build.properties
+/[Aa]ssets/[Aa]ssetStoreTools*
+/[Aa]ssets/[Pp]lugins/[Ee]ditor/JetBrains*
+
+# ---- 测试日志（结果 XML 可以保留，日志可重新生成）----
+/TestResults/*.log
+/TestResults/*.html

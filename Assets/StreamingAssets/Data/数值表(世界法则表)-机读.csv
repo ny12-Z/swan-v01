@@ -1,0 +1,11 @@
+ruleId,category,name,triggerKey,triggerArg,compare,threshold,effectKey,effectValue,radius,perEnvStep,v01Active,note
+L01,流体法则,水往低处流,cellWater,,>,95,overflowToLowestNeighbor,0.25,1,1,1,阈值由100降到95因为水分上限就是100; 0.25=溢出比例
+L02,热力学法则,高温蒸发,cellTemp,,>,100,waterDelta,-10,0,1,0,温度正常不可达(base20+热源40=60); 疑似死规则待定
+L03,燃烧法则,烈焰蔓延,plantTraitAndTemp,G10,>,50,burnPlant,20,0,1,1,50=自燃温度; 20=烧毁后养分; 灰烬地形在25种地形里不存在见note
+L04,生命法则,固氮肥田,plantTrait,G05,HAS,0,nutrientDelta,1,0,1,1,养分会自然推到下一档; 不需要单独的改造阈值
+L05,气候法则,防风护林,plantTrait,G07,HAS,0,evaporationMul,0.5,3,1,1,半径3格
+L06,工业法则,温室效应,structureRunning,M03,HAS,0,tempAndWaterDelta,5/-2,3,1,0,机器全线推迟到v1.0后
+L07,工业法则,虹吸效应,structureRunning,M05,HAS,0,pumpWater,-1,2,1,0,机器推迟; 出水口规则未定义
+L08,自然反噬,水土流失,treeCutInWindow,,>,20,evaporationMul,2,0,1,0,需要砍树计数器; 区域范围未定义
+L09,自然反噬,虫害爆发,monocultureCells,,>,30,spawnPest,-1,0,1,0,需要单一种植统计; 虫害系统未做
+L10,世界终局,大荒漠化,globalWaterRatio,,<,20,evaporationMul,2,0,1,0,改为可逆区域退化+警告; 需全图统计

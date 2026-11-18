@@ -1,0 +1,24 @@
+{
+  "_comment": "v0.1 起始地图预设。regions 按顺序叠加在 config 的 baseline 之上（后者覆盖前者），radius 为圆形半径（格）。改这里=改地图形状，不用改代码。",
+
+  "regions": [
+    { "label": "生命之泉（全图唯一能长熟的格）", "x": 25, "y": 25, "radius": 1, "water": 100, "nutrient": 100 },
+    { "label": "纯水潭", "x": 9, "y": 9, "radius": 5, "water": 92, "nutrient": 28 },
+    { "label": "浅滩/沼泽带", "x": 7, "y": 20, "radius": 3, "water": 65, "nutrient": 45 },
+    { "label": "茂密森林", "x": 14, "y": 38, "radius": 5, "water": 50, "nutrient": 70 },
+    { "label": "肥沃水田", "x": 33, "y": 14, "radius": 4, "water": 50, "nutrient": 50 },
+    { "label": "砂石地", "x": 40, "y": 40, "radius": 5, "water": 30, "nutrient": 8 },
+    { "label": "荒漠（A2：数值完全不动）", "x": 44, "y": 8, "radius": 4, "water": 0, "nutrient": 0 },
+    { "label": "泥浆", "x": 20, "y": 45, "radius": 3, "water": 48, "nutrient": 12 }
+  ],
+
+  "heatSources": [
+    { "x": 25, "y": 31 }
+  ],
+
+  "plants": [
+    { "x": 25, "y": 25, "typeId": "P01" },
+    { "x": 33, "y": 14, "typeId": "P01" },
+    { "x": 30, "y": 29, "typeId": "P01" }
+  ]
+}

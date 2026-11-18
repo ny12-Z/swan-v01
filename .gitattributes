@@ -1,0 +1,33 @@
+# 换行统一：仓库里存 LF，Windows 检出也写 LF（Unity 6 读 LF 没问题）。
+# 目的：多人/多机协同时不因为 CRLF/LF 差异产生整文件假冲突。
+
+* text=auto eol=lf
+
+# 文本：按文件类型给 diff 高亮
+*.cs        text diff=csharp
+*.asmdef    text
+*.asmref    text
+*.json      text
+*.md        text
+*.txt       text
+*.csv       text
+*.ps1       text
+*.py        text
+*.unity     text
+*.prefab    text
+*.asset     text
+*.mat       text
+*.anim      text
+*.controller text
+*.overrideController text
+*.shader    text
+*.compute   text
+*.meta      text
+
+# 二进制：不转换、不合并
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.psd       binary
+*.dll       binary
+*.exe       binary

@@ -1,0 +1,7 @@
+typeId,name,nameEn,growthDays,growthSteps,growthPerStep,size,passable,baseYield,yieldItem,initTraits,requiredWaterMin,requiredWaterMax,requiredNutrientMin,v01Color,v01Active,note
+P01,草本,Herb,3,90,1.11,极小,1,2,食物纤维,G02,20,100,15,#8FD45A,1,入门作物; 可穿过; growthPerStep=100/growthSteps
+P02,灌木,Shrub,5,150,0.67,小,0,3,野果种子,G01,20,100,15,#4E8C3A,0,通过减速; v0.1只读入不开放种植
+P03,乔木,Tree,10,300,0.33,大,0,5,木材硬木,G07,20,100,15,#2F6B34,0,阻挡; 砍伐触发L08统计; v0.1不开放
+P04,藤蔓,Vine,5,150,0.67,附着,0,2,纤维果实,G10,20,100,15,#9C7B3C,0,易燃; 贴墙会连烧; v0.1不开放
+P05,水生,Aquatic,4,120,0.83,极小,1,2,水草水产,G04,60,100,5,#3C6FD1,0,只能种水格(水>=60); v0.1不开放
+P06,荒漠,Desert,8,240,0.42,小,0,3,特殊果实,G03,0,40,5,#C9B48A,0,水太高反而长不好(上限40是占位); v0.1不开放

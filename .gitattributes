@@ -3,6 +3,10 @@
 
 * text=auto eol=lf
 
+# Windows 命令脚本必须保持 CRLF，否则 cmd 会把多行脚本解析错。
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
 # 文本：按文件类型给 diff 高亮
 *.cs        text diff=csharp
 *.asmdef    text

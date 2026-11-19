@@ -87,6 +87,15 @@ namespace Swan.Game.Rendering
             FillRect(tile, cellPixelSize, center, center - 1, 1, 3, c);
         }
 
+        /// <summary>只画热源十字（美术图块之上叠加，不覆盖图块）。</summary>
+        public static void PaintHeatMarker(Color32[] tile, int cellPixelSize, Color32 marker)
+        {
+            int center = cellPixelSize / 2;
+            int arm = Mathf.Max(1, cellPixelSize / 8);
+            FillRect(tile, cellPixelSize, center - arm, center - arm, arm * 2 + 1, 1, marker);
+            FillRect(tile, cellPixelSize, center - arm, center - arm, 1, arm * 2 + 1, marker);
+        }
+
         /// <summary>温度叠加层的一个像素：温度越高越红，alpha 越大。</summary>
         public static Color32 HeatPixel(Color32 heatColor, float temperature, float startTemp, float fullTemp)
         {

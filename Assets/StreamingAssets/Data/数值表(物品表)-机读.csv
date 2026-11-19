@@ -1,0 +1,16 @@
+itemId,name,category,iconFile,srcX,srcY,srcW,srcH,stackMax,placeStructureId,seedPlantId,startingCount,description
+seed_p01,草本种子,seed,Basic_Plants.png,0,0,16,16,99,0,P01,8,种下去等它长大；收获会返还 1 颗
+produce_p01,食物纤维,produce,Basic_Plants.png,80,0,16,16,99,0,,0,收获草本得到
+soil,泥土,material,Tilled_Dirt.png,0,80,16,16,99,0,,0,挖地得到
+stone,石头,material,Basic_tools_and_meterials.png,0,0,16,16,99,0,,0,荒漠和砂石地常见
+wood,木头,material,Basic_tools_and_meterials.png,16,0,16,16,99,0,,3,干枯林地/森林采集
+fiber,纤维,material,Basic_tools_and_meterials.png,16,16,16,16,99,0,,2,草地和雨林采集
+berry,野莓,food,Basic_Grass_Biom_things.png,32,16,16,16,99,0,,0,灌木丛采集
+mushroom,蘑菇,food,Basic_Grass_Biom_things.png,48,0,16,16,99,0,,0,湿地和雨林采集
+flower,野花,food,Basic_Grass_Biom_things.png,112,16,16,16,99,0,,0,草原和生命之泉采集
+watergrass,水草,material,Basic_Plants.png,80,16,16,16,99,0,,0,浅水/湿地采集
+compost,堆肥,material,Basic_tools_and_meterials.png,32,16,16,16,99,0,,3,施肥一次 +10 养分
+fence_item,木栅栏,placeable,Fences.png,0,0,16,16,99,1,,4,占地、挡路
+chest_item,木箱,placeable,Chest.png,0,0,16,16,99,2,,1,占地、挡路；采集可收回
+torch_item,营火,placeable,torch.png,0,0,16,16,99,3,,2,放在地上当热源，采集可收回
+path_item,木地板,placeable,Paths.png,0,0,16,16,99,4,,4,不挡路，可以随便铺

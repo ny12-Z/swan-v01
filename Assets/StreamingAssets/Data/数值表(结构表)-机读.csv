@@ -1,0 +1,6 @@
+structureId,name,blocksMovement,blocksPlanting,spriteFile,srcX,srcY,srcW,srcH,tint,itemId,description
+1,木栅栏,1,1,Fences.png,0,0,16,16,#FFFFFF,fence_item,挡路；采集可收回
+2,木箱,1,1,Chest.png,0,0,16,16,#FFFFFF,chest_item,挡路；采集可收回
+3,营火,1,1,torch.png,0,0,16,16,#FFFFFF,torch_item,放在地上当热源，可开关
+4,木地板,0,0,Paths.png,0,0,16,16,#FFFFFF,path_item,不挡路；可以铺一条路
+5,岩石,1,1,Basic_Grass_Biom_things.png,80,64,16,16,#FFFFFF,stone,挡路；采集可搬走换回石头

@@ -13,6 +13,11 @@ namespace Swan.Core.Data
         public TerrainTable Terrain;
         public TraitTable Traits;
         public PlantTypeTable Plants;
+        public StructureTable Structures;
+        public ItemTable Items;
+        public ForageTable Forage;
+        public ActionTable Actions;
+        public TutorialTable Tutorial;
         public RuleTable Rules;
         public MapPreset Preset;
 
@@ -36,6 +41,22 @@ namespace Swan.Core.Data
 
             var plantDoc = CsvDocument.Parse(source.ReadText(PlantTypeTable.FileName), PlantTypeTable.FileName, warnings);
             bundle.Plants = PlantTypeTable.Load(plantDoc, bundle.Traits, warnings);
+
+            var structureDoc = CsvDocument.Parse(source.ReadText(StructureTable.FileName), StructureTable.FileName, warnings);
+            bundle.Structures = StructureTable.Load(structureDoc, warnings);
+
+            var itemDoc = CsvDocument.Parse(source.ReadText(ItemTable.FileName), ItemTable.FileName, warnings);
+            bundle.Items = ItemTable.Load(itemDoc, bundle.Structures, bundle.Plants, warnings);
+            bundle.Structures.ValidateItems(bundle.Items);
+
+            var forageDoc = CsvDocument.Parse(source.ReadText(ForageTable.FileName), ForageTable.FileName, warnings);
+            bundle.Forage = ForageTable.Load(forageDoc, bundle.Terrain, bundle.Items, warnings);
+
+            var actionDoc = CsvDocument.Parse(source.ReadText(ActionTable.FileName), ActionTable.FileName, warnings);
+            bundle.Actions = ActionTable.Load(actionDoc, bundle.Items, warnings);
+
+            var tutorialDoc = CsvDocument.Parse(source.ReadText(TutorialTable.FileName), TutorialTable.FileName, warnings);
+            bundle.Tutorial = TutorialTable.Load(tutorialDoc, warnings);
 
             var ruleDoc = CsvDocument.Parse(source.ReadText(RuleTable.FileName), RuleTable.FileName, warnings);
             bundle.Rules = RuleTable.Load(ruleDoc, bundle.Traits, warnings);

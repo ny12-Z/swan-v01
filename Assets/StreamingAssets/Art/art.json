@@ -1,0 +1,76 @@
+{
+  "_comment": "美术映射：所有坐标都是源 PNG 左上角起的像素坐标。改这里就能换图，不用改代码。",
+  "ground": [
+    {"id":1,"file":"Tilled_Dirt_v2.png","x":0,"y":80,"tint":"#E0C48E"},
+    {"id":2,"file":"Tilled_Dirt_v2.png","x":0,"y":80,"tint":"#CBB07C"},
+    {"id":3,"file":"Grass.png","x":0,"y":80,"tint":"#CFCF7A"},
+    {"id":4,"file":"Grass.png","x":0,"y":80,"tint":"#A8B36C"},
+    {"id":5,"file":"Tilled_Dirt_v2.png","x":0,"y":80,"tint":"#6B5A43"},
+    {"id":6,"file":"Tilled_Dirt_v2.png","x":16,"y":80,"tint":"#A9A9A9"},
+    {"id":7,"file":"Tilled_Dirt_v2.png","x":0,"y":80,"tint":"#FFFFFF"},
+    {"id":8,"file":"Grass.png","x":0,"y":80,"tint":"#FFFFFF"},
+    {"id":9,"file":"Grass.png","x":16,"y":80,"tint":"#A6CF66"},
+    {"id":10,"file":"Tilled_Dirt_v2.png","x":0,"y":80,"tint":"#5A4636"},
+    {"id":11,"file":"Grass.png","x":0,"y":80,"tint":"#93B77A"},
+    {"id":12,"file":"Grass.png","x":16,"y":80,"tint":"#7FA06A"},
+    {"id":13,"file":"Tilled_Dirt_v2.png","x":0,"y":80,"tint":"#B9B07A"},
+    {"id":14,"file":"Grass.png","x":32,"y":80,"tint":"#6FA85A"},
+    {"id":15,"file":"Grass.png","x":48,"y":80,"tint":"#4F9A55"},
+    {"id":16,"file":"Water.png","x":0,"y":0,"tint":"#9FE0D8"},
+    {"id":17,"file":"Water.png","x":16,"y":0,"tint":"#6FC4D8"},
+    {"id":18,"file":"Water.png","x":0,"y":0,"tint":"#6E9A6A"},
+    {"id":19,"file":"Water.png","x":32,"y":0,"tint":"#4E7A5A"},
+    {"id":20,"file":"Water.png","x":16,"y":0,"tint":"#5FAF8A"},
+    {"id":21,"file":"Water.png","x":0,"y":0,"tint":"#7FD3E8"},
+    {"id":22,"file":"Water.png","x":16,"y":0,"tint":"#7FE0E8"},
+    {"id":23,"file":"Water.png","x":32,"y":0,"tint":"#8FD0B0"},
+    {"id":24,"file":"Water.png","x":48,"y":0,"tint":"#4A5A6A"},
+    {"id":25,"file":"Water.png","x":0,"y":0,"tint":"#C8F0E0"}
+  ],
+  "scatter": [
+    {"file":"Basic_Grass_Biom_things.png","x":96,"y":16,"chance":0.025,"terrains":[3,4,7,8,9,10,11,13,14]},
+    {"file":"Basic_Grass_Biom_things.png","x":96,"y":32,"chance":0.018,"terrains":[8,9,11,12,13,14]},
+    {"file":"Basic_Grass_Biom_things.png","x":80,"y":0,"chance":0.010,"terrains":[9,12,14,18,19]},
+    {"file":"Basic_Grass_Biom_things.png","x":112,"y":48,"chance":0.022,"terrains":[8,9,11,14,15]},
+    {"file":"Basic_Grass_Biom_things.png","x":80,"y":48,"chance":0.020,"terrains":[4,8,9,13,14,15]},
+    {"file":"Basic_Grass_Biom_things.png","x":96,"y":48,"chance":0.015,"terrains":[3,8,9,11,13,14]},
+    {"file":"Basic_Grass_Biom_things.png","x":64,"y":48,"chance":0.010,"terrains":[1,2,5,6,7,10]},
+    {"file":"Basic_tools_and_meterials.png","x":0,"y":0,"chance":0.008,"terrains":[1,2,5,6,7,10]},
+    {"file":"Basic_Grass_Biom_things.png","x":0,"y":32,"chance":0.003,"terrains":[9,14,15]}
+  ],
+  "plants": [
+    {"typeId":"P01","file":"Basic_Plants.png","row":0,"tint":"#FFFFFF","stages":[1,2,3,4]},
+    {"typeId":"P02","file":"Basic_Plants.png","row":1,"tint":"#B8E08A","stages":[1,2,3,4]},
+    {"typeId":"P03","file":"Basic_Plants.png","row":1,"tint":"#7FBF6A","stages":[1,2,3,4]},
+    {"typeId":"P04","file":"Basic_Plants.png","row":1,"tint":"#D8C08A","stages":[1,2,3,4]},
+    {"typeId":"P05","file":"Basic_Plants.png","row":1,"tint":"#8FCBFF","stages":[1,2,3,4]},
+    {"typeId":"P06","file":"Basic_Plants.png","row":1,"tint":"#E8D09A","stages":[1,2,3,4]}
+  ],
+  "player": {
+    "sheet":"Basic Charakter Spritesheet.png",
+    "cell":48,
+    "spriteX":16,
+    "spriteY":16,
+    "spriteW":16,
+    "spriteH":16,
+    "frames":4,
+    "directions":4
+  },
+  "actions": [
+    {"id":"plant","file":"Basic_Plants.png","x":0,"y":0},
+    {"id":"harvest","file":"Basic_Plants.png","x":80,"y":0},
+    {"id":"dig","file":"Tools.png","x":0,"y":32},
+    {"id":"place","file":"Chest.png","x":0,"y":0},
+    {"id":"collect","file":"Basic_Grass_Biom_things.png","x":32,"y":16},
+    {"id":"water","file":"Tools.png","x":0,"y":16},
+    {"id":"fertilize","file":"Basic_tools_and_meterials.png","x":32,"y":16},
+    {"id":"heat","file":"torch.png","x":0,"y":0}
+  ],
+  "props": [
+    {"file":"Basic_Grass_Biom_things.png","x":0,"y":0,"w":48,"h":48,"chance":0.025,"terrains":[4,8,9,14,15,20],"offsetY":-1.1},
+    {"file":"Basic_Grass_Biom_things.png","x":32,"y":0,"w":48,"h":48,"chance":0.008,"terrains":[8,9,14,15],"offsetY":-1.1},
+    {"file":"Basic_Grass_Biom_things.png","x":0,"y":32,"w":16,"h":16,"chance":0.020,"terrains":[7,8,9,10,13,14]},
+    {"file":"Basic_Grass_Biom_things.png","x":64,"y":48,"w":16,"h":16,"chance":0.012,"terrains":[1,2,5,6,7,10]}
+  ],
+  "cursor": {"file":"Catpaw Mouse icon.png"}
+}

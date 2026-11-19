@@ -1,0 +1,9 @@
+actionId,name,hotkey,selectsCategory,costItem,gainItem,power,power2,power3,description
+plant,种植,1,seed,,,0,0,0,选种子后种在目标格
+harvest,收获,2,,,,0,0,0,成熟后收获，返还种子
+dig,挖掘,3,,,soil,8,4,1,降低水分和养分，得到泥土
+place,放置,4,placeable,,,0,0,0,放置栅栏/木箱/营火/木地板
+collect,采集,5,,,,0,0,0,采集野物，或收回放置物
+water,浇水,6,,,,12,0,0,给目标格加 12 水
+fertilize,施肥,7,,compost,,10,0,0,消耗堆肥，给目标格加 10 养分
+heat,热源,8,,torch_item,,0,0,0,消耗营火，打开/关闭这一格的热源

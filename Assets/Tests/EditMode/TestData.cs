@@ -22,10 +22,16 @@ namespace Swan.Tests
         public const string PlantFile = "数值表(植物类型表)-机读.csv";
         public const string TraitFile = "数值表(植物性状表)-机读.csv";
         public const string RuleFile = "数值表(世界法则表)-机读.csv";
+        public const string StructureFile = "数值表(结构表)-机读.csv";
+        public const string ItemFile = "数值表(物品表)-机读.csv";
+        public const string ForageFile = "数值表(采集物表)-机读.csv";
+        public const string ActionFile = "数值表(动作表)-机读.csv";
+        public const string TutorialFile = "教程.csv";
 
         static readonly string[] Files =
         {
             ConfigFile, PresetFile, TerrainFile, PlantFile, TraitFile, RuleFile,
+            StructureFile, ItemFile, ForageFile, ActionFile, TutorialFile,
         };
 
         public static string Folder => Path.Combine(Application.streamingAssetsPath, "Data");

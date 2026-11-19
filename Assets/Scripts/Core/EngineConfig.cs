@@ -47,6 +47,8 @@ namespace Swan.Core
         public float GrowTempMin;
         public float GrowTempMax;
         public float RipeThreshold;
+        /// <summary>全局生长倍率（1 = 按表里的生长曲线；调大用于快速试玩）。</summary>
+        public float GrowthSpeedMultiplier;
 
         // —— 地形重判 ——
         public float TerrainHysteresis;
@@ -64,6 +66,33 @@ namespace Swan.Core
 
         // —— 规则解释开关（见 DECISIONS D1）——
         public bool StackInitialGrowthTraits;
+
+        // —— 玩家与交互 ——
+        public float PlayerMoveCellsPerSecond;
+        public float PlayerCollisionRadius;
+        public float PlayerSpriteScale;
+        /// <summary>行走动画每秒播放的换帧次数（纯表现参数，进 config 是为了方便调手感）。</summary>
+        public float PlayerAnimationFps;
+        /// <summary>主角出生格；-1 = 自动从地图中心找一块能站的地。</summary>
+        public int PlayerStartX;
+        public int PlayerStartY;
+        /// <summary>主角身边可点击的地块范围（默认 12×12）。</summary>
+        public int InteractionWidth;
+        public int InteractionHeight;
+        /// <summary>水深超过这个值就过不去（也决定哪些格能站人）。</summary>
+        public float WalkableMaxWater;
+        /// <summary>水超过这个值就挖不动（挖泥会先排水）。</summary>
+        public float DigMaxWater;
+        /// <summary>收获时返还的种子数量；0 = 不返还。</summary>
+        public int SeedReturnOnHarvest;
+        public int ForageSeed;
+        public float ForageRegrowChance;
+        public int ForageMaxCount;
+
+        // —— 岩石：按概率铺在地表，做成「挡路结构」，采集可搬走 ——
+        public float RockChance;
+        public int RockStructureId;
+        public int RockSeed;
 
         // —— 表现层参数（相机/HUD/温度叠加层）。也是「数值」，所以一样进 config ——
         public float CameraOrthographicSize;
@@ -85,6 +114,19 @@ namespace Swan.Core
         public int HudFontSize;
         public int HudMargin;
         public float HudPanelAlpha;
+        /// <summary>12×12 交互区边框颜色。</summary>
+        public string ZoneColor;
+        public string ZoneOutOfRangeColor;
+        public float ZoneFillAlpha;
+        public float ZoneBorderAlpha;
+        public int EnvStepsPerDay;
+        public float ToastSeconds;
+        public string UiPanelColor;
+        public string UiButtonColor;
+        public string UiTextColor;
+        public string UiMutedColor;
+        public string UiAccentColor;
+        public string UiDangerColor;
         public float[] SpeedLevels;
         public float DefaultSpeed;
 
@@ -130,6 +172,7 @@ namespace Swan.Core
             Num("growTempMin", GrowTempMin);
             Num("growTempMax", GrowTempMax);
             Num("ripeThreshold", RipeThreshold);
+            Num("growthSpeedMultiplier", GrowthSpeedMultiplier);
             Num("terrainHysteresis", TerrainHysteresis);
             Int("mapSeed", MapSeed);
             Num("mapBaselineWater", MapBaselineWater);
@@ -140,6 +183,23 @@ namespace Swan.Core
             Num("plantSizeRatio", PlantSizeRatio);
             Num("plantMinSizeRatio", PlantMinSizeRatio);
             Bool("stackInitialGrowthTraits", StackInitialGrowthTraits);
+            Num("playerMoveCellsPerSecond", PlayerMoveCellsPerSecond);
+            Num("playerCollisionRadius", PlayerCollisionRadius);
+            Num("playerSpriteScale", PlayerSpriteScale);
+            Num("playerAnimationFps", PlayerAnimationFps);
+            Int("playerStartX", PlayerStartX);
+            Int("playerStartY", PlayerStartY);
+            Int("interactionWidth", InteractionWidth);
+            Int("interactionHeight", InteractionHeight);
+            Num("walkableMaxWater", WalkableMaxWater);
+            Num("digMaxWater", DigMaxWater);
+            Int("seedReturnOnHarvest", SeedReturnOnHarvest);
+            Int("forageSeed", ForageSeed);
+            Num("forageRegrowChance", ForageRegrowChance);
+            Int("forageMaxCount", ForageMaxCount);
+            Num("rockChance", RockChance);
+            Int("rockStructureId", RockStructureId);
+            Int("rockSeed", RockSeed);
             Num("cameraOrthographicSize", CameraOrthographicSize);
             Num("cameraPanSpeedCellsPerSecond", CameraPanSpeedCellsPerSecond);
             Num("cameraZoomStep", CameraZoomStep);
@@ -155,6 +215,18 @@ namespace Swan.Core
             Int("hudFontSize", HudFontSize);
             Int("hudMargin", HudMargin);
             Num("hudPanelAlpha", HudPanelAlpha);
+            Raw("zoneColor", "\"" + ZoneColor + "\"");
+            Raw("zoneOutOfRangeColor", "\"" + ZoneOutOfRangeColor + "\"");
+            Num("zoneFillAlpha", ZoneFillAlpha);
+            Num("zoneBorderAlpha", ZoneBorderAlpha);
+            Int("envStepsPerDay", EnvStepsPerDay);
+            Num("toastSeconds", ToastSeconds);
+            Raw("uiPanelColor", "\"" + UiPanelColor + "\"");
+            Raw("uiButtonColor", "\"" + UiButtonColor + "\"");
+            Raw("uiTextColor", "\"" + UiTextColor + "\"");
+            Raw("uiMutedColor", "\"" + UiMutedColor + "\"");
+            Raw("uiAccentColor", "\"" + UiAccentColor + "\"");
+            Raw("uiDangerColor", "\"" + UiDangerColor + "\"");
             var speeds = new List<string>();
             if (SpeedLevels != null)
             {

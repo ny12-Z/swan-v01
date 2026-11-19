@@ -19,6 +19,12 @@ namespace Swan.Core.Sim
         public int TerrainId;
         public bool HasHeatSource;
 
+        // —— 放置物 / 野物 ——
+        /// <summary>结构表 id；0 = 空地。</summary>
+        public int StructureId;
+        /// <summary>采集物表里的物品 id；null/空 = 没有野物。</summary>
+        public string ForageItemId;
+
         // —— 植物 ——
         public int PlantTypeId;
         public float Growth;
@@ -27,6 +33,8 @@ namespace Swan.Core.Sim
         public string[] Traits;
 
         public bool HasPlant => PlantTypeId != NoPlant;
+        public bool HasStructure => StructureId != 0;
+        public bool HasForage => !string.IsNullOrEmpty(ForageItemId);
 
         public static Cell Create(float water, float nutrient, float temperature, int terrainId)
         {
@@ -37,6 +45,8 @@ namespace Swan.Core.Sim
                 Temperature = temperature,
                 TerrainId = terrainId,
                 HasHeatSource = false,
+                StructureId = 0,
+                ForageItemId = null,
                 PlantTypeId = NoPlant,
                 Growth = 0f,
                 Harvestable = false,

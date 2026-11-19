@@ -12,6 +12,7 @@ namespace Swan.Game
     public static class DataLocator
     {
         public const string DataFolderName = "Data";
+        public const string ArtFolderName = "Art";
         public const string CommandLineArg = "-swanDataDir";
 
         public static string ResolveDirectory()
@@ -27,6 +28,17 @@ namespace Swan.Game
 
             var basePath = UnityEngine.Application.streamingAssetsPath;
             return Path.Combine(basePath, DataFolderName);
+        }
+
+        /// <summary>美术目录默认与 Data 同级；自定义数据目录时也遵守同样的相对关系。</summary>
+        public static string ArtDirectory
+        {
+            get
+            {
+                string data = ResolveDirectory();
+                string parent = Path.GetDirectoryName(data);
+                return string.IsNullOrEmpty(parent) ? Path.Combine(data, ArtFolderName) : Path.Combine(parent, ArtFolderName);
+            }
         }
 
         public static IFileSource CreateSource(out string directory)

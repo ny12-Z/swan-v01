@@ -113,6 +113,7 @@ namespace Swan.Core
             config.GrowTempMin = Num("growTempMin");
             config.GrowTempMax = Num("growTempMax");
             config.RipeThreshold = Num("ripeThreshold");
+            config.GrowthSpeedMultiplier = Num("growthSpeedMultiplier");
             config.TerrainHysteresis = Num("terrainHysteresis");
             config.MapSeed = Int("mapSeed");
             config.MapBaselineWater = Num("mapBaselineWater");
@@ -123,6 +124,23 @@ namespace Swan.Core
             config.PlantSizeRatio = Num("plantSizeRatio");
             config.PlantMinSizeRatio = Num("plantMinSizeRatio");
             config.StackInitialGrowthTraits = Bool("stackInitialGrowthTraits");
+            config.PlayerMoveCellsPerSecond = Num("playerMoveCellsPerSecond");
+            config.PlayerCollisionRadius = Num("playerCollisionRadius");
+            config.PlayerSpriteScale = Num("playerSpriteScale");
+            config.PlayerAnimationFps = Num("playerAnimationFps");
+            config.PlayerStartX = Int("playerStartX");
+            config.PlayerStartY = Int("playerStartY");
+            config.InteractionWidth = Int("interactionWidth");
+            config.InteractionHeight = Int("interactionHeight");
+            config.WalkableMaxWater = Num("walkableMaxWater");
+            config.DigMaxWater = Num("digMaxWater");
+            config.SeedReturnOnHarvest = Int("seedReturnOnHarvest");
+            config.ForageSeed = Int("forageSeed");
+            config.ForageRegrowChance = Num("forageRegrowChance");
+            config.ForageMaxCount = Int("forageMaxCount");
+            config.RockChance = Num("rockChance");
+            config.RockStructureId = Int("rockStructureId");
+            config.RockSeed = Int("rockSeed");
             config.CameraOrthographicSize = Num("cameraOrthographicSize");
             config.CameraPanSpeedCellsPerSecond = Num("cameraPanSpeedCellsPerSecond");
             config.CameraZoomStep = Num("cameraZoomStep");
@@ -138,6 +156,18 @@ namespace Swan.Core
             config.HudFontSize = Int("hudFontSize");
             config.HudMargin = Int("hudMargin");
             config.HudPanelAlpha = Num("hudPanelAlpha");
+            config.ZoneColor = Text("zoneColor");
+            config.ZoneOutOfRangeColor = Text("zoneOutOfRangeColor");
+            config.ZoneFillAlpha = Num("zoneFillAlpha");
+            config.ZoneBorderAlpha = Num("zoneBorderAlpha");
+            config.EnvStepsPerDay = Int("envStepsPerDay");
+            config.ToastSeconds = Num("toastSeconds");
+            config.UiPanelColor = Text("uiPanelColor");
+            config.UiButtonColor = Text("uiButtonColor");
+            config.UiTextColor = Text("uiTextColor");
+            config.UiMutedColor = Text("uiMutedColor");
+            config.UiAccentColor = Text("uiAccentColor");
+            config.UiDangerColor = Text("uiDangerColor");
             config.SpeedLevels = Numbers("speedLevels");
             config.DefaultSpeed = Num("defaultSpeed");
 
@@ -155,6 +185,14 @@ namespace Swan.Core
             ColorHex.ParseRequired(config.HeatOverlayColor, FileName, root.Member("heatOverlayColor")?.Line ?? 0, "heatOverlayColor");
             ColorHex.ParseRequired(config.MarkerColor, FileName, root.Member("markerColor")?.Line ?? 0, "markerColor");
             ColorHex.ParseRequired(config.CursorColor, FileName, root.Member("cursorColor")?.Line ?? 0, "cursorColor");
+            ColorHex.ParseRequired(config.ZoneColor, FileName, root.Member("zoneColor")?.Line ?? 0, "zoneColor");
+            ColorHex.ParseRequired(config.ZoneOutOfRangeColor, FileName, root.Member("zoneOutOfRangeColor")?.Line ?? 0, "zoneOutOfRangeColor");
+            ColorHex.ParseRequired(config.UiPanelColor, FileName, root.Member("uiPanelColor")?.Line ?? 0, "uiPanelColor");
+            ColorHex.ParseRequired(config.UiButtonColor, FileName, root.Member("uiButtonColor")?.Line ?? 0, "uiButtonColor");
+            ColorHex.ParseRequired(config.UiTextColor, FileName, root.Member("uiTextColor")?.Line ?? 0, "uiTextColor");
+            ColorHex.ParseRequired(config.UiMutedColor, FileName, root.Member("uiMutedColor")?.Line ?? 0, "uiMutedColor");
+            ColorHex.ParseRequired(config.UiAccentColor, FileName, root.Member("uiAccentColor")?.Line ?? 0, "uiAccentColor");
+            ColorHex.ParseRequired(config.UiDangerColor, FileName, root.Member("uiDangerColor")?.Line ?? 0, "uiDangerColor");
             Validate(config);
             return config;
         }
@@ -198,6 +236,7 @@ namespace Swan.Core
             Check(config.PlantIntakeBase >= 0f, "plantIntakeBase", "不能是负数");
             Check(config.GrowTempMin < config.GrowTempMax, "growTempMin", "必须小于 growTempMax");
             Check(config.RipeThreshold > 0f, "ripeThreshold", "必须大于 0");
+            Check(config.GrowthSpeedMultiplier > 0f, "growthSpeedMultiplier", "必须大于 0");
             Check(config.TerrainHysteresis >= 0f && config.TerrainHysteresis <= (config.WaterMax - config.WaterMin),
                 "terrainHysteresis", "必须在 0 .. (waterMax-waterMin) 之间");
             Check(config.MapJitterWater >= 0f, "mapJitterWater", "不能是负数");
@@ -218,6 +257,29 @@ namespace Swan.Core
             Check(config.HudFontSize >= 8, "hudFontSize", "至少 8");
             Check(config.HudMargin >= 0, "hudMargin", "不能是负数");
             Check(config.HudPanelAlpha >= 0f && config.HudPanelAlpha <= 1f, "hudPanelAlpha", "必须在 0..1 之间");
+            Check(config.PlayerMoveCellsPerSecond > 0f, "playerMoveCellsPerSecond", "必须大于 0");
+            Check(config.PlayerCollisionRadius > 0f && config.PlayerCollisionRadius < 0.5f,
+                "playerCollisionRadius", "必须在 (0, 0.5) 之间，否则人比格子还大");
+            Check(config.PlayerSpriteScale > 0f, "playerSpriteScale", "必须大于 0");
+            Check(config.PlayerAnimationFps > 0f, "playerAnimationFps", "必须大于 0");
+            Check(config.InteractionWidth >= 1 && config.InteractionHeight >= 1,
+                "interactionWidth", "交互范围至少 1×1");
+            Check(config.WalkableMaxWater >= config.WaterMin && config.WalkableMaxWater <= config.WaterMax,
+                "walkableMaxWater", "必须落在水区间内");
+            Check(config.DigMaxWater >= config.WaterMin && config.DigMaxWater <= config.WaterMax,
+                "digMaxWater", "必须落在水区间内");
+            Check(config.SeedReturnOnHarvest >= 0, "seedReturnOnHarvest", "不能是负数");
+            Check(config.ForageRegrowChance >= 0f && config.ForageRegrowChance <= 1f,
+                "forageRegrowChance", "必须在 0..1 之间");
+            Check(config.ForageMaxCount >= 0, "forageMaxCount", "不能是负数");
+            Check(config.RockChance >= 0f && config.RockChance <= 1f, "rockChance", "必须在 0..1 之间");
+            Check(config.RockStructureId >= 0, "rockStructureId", "不能是负数");
+            Check(config.RockChance <= 0f || config.RockStructureId > 0,
+                "rockStructureId", "铺岩石时必须给出正数结构编号");
+            Check(config.ZoneFillAlpha >= 0f && config.ZoneFillAlpha <= 1f, "zoneFillAlpha", "必须在 0..1 之间");
+            Check(config.ZoneBorderAlpha >= 0f && config.ZoneBorderAlpha <= 1f, "zoneBorderAlpha", "必须在 0..1 之间");
+            Check(config.EnvStepsPerDay >= 1, "envStepsPerDay", "至少是 1");
+            Check(config.ToastSeconds >= 0f, "toastSeconds", "不能是负数");
             Check(config.SpeedLevels != null && config.SpeedLevels.Length > 0, "speedLevels", "至少要有一个速度档位");
             if (config.SpeedLevels != null)
             {

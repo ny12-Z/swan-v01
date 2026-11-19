@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="62" result="Passed" total="62" passed="62" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.3809555">
+  <test-suite type="TestSuite" id="1000" name="swan-v01" fullname="swan-v01" runstate="Runnable" testcasecount="62" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.380956" total="62" passed="62" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1071" name="Swan.Tests.EditMode.dll" fullname="C:/Users/Administrator/Desktop/工程/swan-v01/Library/ScriptAssemblies/Swan.Tests.EditMode.dll" runstate="Runnable" testcasecount="62" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.370552" total="62" passed="62" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="58420" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1072" name="Swan" fullname="Swan" runstate="Runnable" testcasecount="62" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.368792" total="62" passed="62" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1073" name="Tests" fullname="Swan.Tests" runstate="Runnable" testcasecount="62" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.367277" total="62" passed="62" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ClockTests" fullname="Swan.Tests.ClockTests" classname="Swan.Tests.ClockTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.089114" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1004" name="x60跑一秒约三步" fullname="Swan.Tests.ClockTests.x60跑一秒约三步" methodname="x60跑一秒约三步" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="563937801" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.016337" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="x60跑六十秒约一百八十步" fullname="Swan.Tests.ClockTests.x60跑六十秒约一百八十步" methodname="x60跑六十秒约一百八十步" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1636392892" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.000616" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="一帧最多推进MaxEnvStepsPerFrame步且不欠账" fullname="Swan.Tests.ClockTests.一帧最多推进MaxEnvStepsPerFrame步且不欠账" methodname="一帧最多推进MaxEnvStepsPerFrame步且不欠账" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1978098900" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.000334" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="不到一个环境步就不推进世界" fullname="Swan.Tests.ClockTests.不到一个环境步就不推进世界" methodname="不到一个环境步就不推进世界" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1095453971" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.000284" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="切到高倍速不会立刻补跑一串" fullname="Swan.Tests.ClockTests.切到高倍速不会立刻补跑一串" methodname="切到高倍速不会立刻补跑一串" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1906883411" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.003096" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="单步五次就是五步" fullname="Swan.Tests.ClockTests.单步五次就是五步" methodname="单步五次就是五步" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="647714766" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.000468" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="单步会清零进度不乱补" fullname="Swan.Tests.ClockTests.单步会清零进度不乱补" methodname="单步会清零进度不乱补" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="927531749" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:20Z" duration="0.000369" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="热重载换envStepSeconds立刻生效" fullname="Swan.Tests.ClockTests.热重载换envStepSeconds立刻生效" methodname="热重载换envStepSeconds立刻生效" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1882324478" result="Passed" start-time="2026-11-19 03:50:20Z" end-time="2026-11-19 03:50:21Z" duration="0.009665" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="视觉tick按真实时间走且不受暂停影响" fullname="Swan.Tests.ClockTests.视觉tick按真实时间走且不受暂停影响" methodname="视觉tick按真实时间走且不受暂停影响" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1558237390" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000997" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="速度必须为正" fullname="Swan.Tests.ClockTests.速度必须为正" methodname="速度必须为正" classname="Swan.Tests.ClockTests" runstate="Runnable" seed="1863286339" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.001244" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1012" name="CursorTests" fullname="Swan.Tests.CursorTests" classname="Swan.Tests.CursorTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.082270" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1014" name="光标框是空心框不是整块色块" fullname="Swan.Tests.CursorTests.光标框是空心框不是整块色块" methodname="光标框是空心框不是整块色块" classname="Swan.Tests.CursorTests" runstate="Runnable" seed="1113966884" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.034515" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="光标颜色来自配置" fullname="Swan.Tests.CursorTests.光标颜色来自配置" methodname="光标颜色来自配置" classname="Swan.Tests.CursorTests" runstate="Runnable" seed="677177805" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.014979" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="第一次调用就该把光标框画出来" fullname="Swan.Tests.CursorTests.第一次调用就该把光标框画出来" methodname="第一次调用就该把光标框画出来" classname="Swan.Tests.CursorTests" runstate="Runnable" seed="1318184285" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.012714" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="透明度为零时光标不可见" fullname="Swan.Tests.CursorTests.透明度为零时光标不可见" methodname="透明度为零时光标不可见" classname="Swan.Tests.CursorTests" runstate="Runnable" seed="972783035" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.017769" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1017" name="CurveTests" fullname="Swan.Tests.CurveTests" classname="Swan.Tests.CurveTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.011016" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1018" name="B1_普通土地起手30比30_七步后停长" fullname="Swan.Tests.CurveTests.B1_普通土地起手30比30_七步后停长" methodname="B1_普通土地起手30比30_七步后停长" classname="Swan.Tests.CurveTests" runstate="Runnable" seed="1751665840" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003490" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="B2_肥沃水田起手50比50_二十四步后停长" fullname="Swan.Tests.CurveTests.B2_肥沃水田起手50比50_二十四步后停长" methodname="B2_肥沃水田起手50比50_二十四步后停长" classname="Swan.Tests.CurveTests" runstate="Runnable" seed="714161066" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000314" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="停长之后生长值不许再涨" fullname="Swan.Tests.CurveTests.停长之后生长值不许再涨" methodname="停长之后生长值不许再涨" classname="Swan.Tests.CurveTests" runstate="Runnable" seed="1770592342" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000151" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1021" name="DataLoadingTests" fullname="Swan.Tests.DataLoadingTests" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.045694" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1032" name="config少字段时报错" fullname="Swan.Tests.DataLoadingTests.config少字段时报错" methodname="config少字段时报错" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="1103967731" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.004810" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1027" name="CSV解析支持引号内逗号与换行" fullname="Swan.Tests.DataLoadingTests.CSV解析支持引号内逗号与换行" methodname="CSV解析支持引号内逗号与换行" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="761794104" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000288" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="v01只开放P01养殖" fullname="Swan.Tests.DataLoadingTests.v01只开放P01养殖" methodname="v01只开放P01养殖" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="495334999" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003320" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1025" name="二十五宫格每一格都能查到且不重号" fullname="Swan.Tests.DataLoadingTests.二十五宫格每一格都能查到且不重号" methodname="二十五宫格每一格都能查到且不重号" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="837269503" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003445" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1034" name="光标框线宽超过格子像素时要报错" fullname="Swan.Tests.DataLoadingTests.光标框线宽超过格子像素时要报错" methodname="光标框线宽超过格子像素时要报错" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="815242380" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.002950" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1035" name="光标颜色写错时要报错并指出是哪一列" fullname="Swan.Tests.DataLoadingTests.光标颜色写错时要报错并指出是哪一列" methodname="光标颜色写错时要报错并指出是哪一列" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="597808884" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.002923" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1028" name="列数不对时报错带行号与文件名" fullname="Swan.Tests.DataLoadingTests.列数不对时报错带行号与文件名" methodname="列数不对时报错带行号与文件名" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="123265547" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000256" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="同一个参数两个来源时必须报错" fullname="Swan.Tests.DataLoadingTests.同一个参数两个来源时必须报错" methodname="同一个参数两个来源时必须报错" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="432269482" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003510" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1029" name="地形主键重复时报错" fullname="Swan.Tests.DataLoadingTests.地形主键重复时报错" methodname="地形主键重复时报错" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="1289278883" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003281" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="地形关键行数值与文档一致" fullname="Swan.Tests.DataLoadingTests.地形关键行数值与文档一致" methodname="地形关键行数值与文档一致" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="1543102476" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.002752" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="植物性状外键查不到时报错" fullname="Swan.Tests.DataLoadingTests.植物性状外键查不到时报错" methodname="植物性状外键查不到时报错" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="1182774225" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.002809" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="法则效果键未知时报错" fullname="Swan.Tests.DataLoadingTests.法则效果键未知时报错" methodname="法则效果键未知时报错" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="1684960025" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003540" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="真实数据能全部加载" fullname="Swan.Tests.DataLoadingTests.真实数据能全部加载" methodname="真实数据能全部加载" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="463585300" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003254" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="边界值归属上一档" fullname="Swan.Tests.DataLoadingTests.边界值归属上一档" methodname="边界值归属上一档" classname="Swan.Tests.DataLoadingTests" runstate="Runnable" seed="1163259179" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.006302" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1036" name="GameplayTests" fullname="Swan.Tests.GameplayTests" classname="Swan.Tests.GameplayTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.085853" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1049" name="ArtCatalog_LoadsGroundAndPlayerFrames" fullname="Swan.Tests.GameplayTests.ArtCatalog_LoadsGroundAndPlayerFrames" methodname="ArtCatalog_LoadsGroundAndPlayerFrames" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1207769460" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.014916" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="Config_SaveAndRestoreDefault_RoundTrips" fullname="Swan.Tests.GameplayTests.Config_SaveAndRestoreDefault_RoundTrips" methodname="Config_SaveAndRestoreDefault_RoundTrips" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1923844845" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.019580" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="Dig_LowersSoil_AndGivesSoilItem" fullname="Swan.Tests.GameplayTests.Dig_LowersSoil_AndGivesSoilItem" methodname="Dig_LowersSoil_AndGivesSoilItem" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="441724770" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.004647" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1046" name="Forage_CanBeCollected_AndWorldCountDrops" fullname="Swan.Tests.GameplayTests.Forage_CanBeCollected_AndWorldCountDrops" methodname="Forage_CanBeCollected_AndWorldCountDrops" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1460601054" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.004480" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="Heat_TogglesWithTorchCost" fullname="Swan.Tests.GameplayTests.Heat_TogglesWithTorchCost" methodname="Heat_TogglesWithTorchCost" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1336182777" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003971" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="Interact_RejectsOutOfRange" fullname="Swan.Tests.GameplayTests.Interact_RejectsOutOfRange" methodname="Interact_RejectsOutOfRange" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1201858970" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003370" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1039" name="InteractionRange_IsTwelveByTwelveAroundPlayerCell" fullname="Swan.Tests.GameplayTests.InteractionRange_IsTwelveByTwelveAroundPlayerCell" methodname="InteractionRange_IsTwelveByTwelveAroundPlayerCell" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1811580561" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003401" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="Move_IsDeltaTimeDriven_NotPerFrame" fullname="Swan.Tests.GameplayTests.Move_IsDeltaTimeDriven_NotPerFrame" methodname="Move_IsDeltaTimeDriven_NotPerFrame" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1928203083" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.004127" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1038" name="Move_StopsAtBlockingStructure" fullname="Swan.Tests.GameplayTests.Move_StopsAtBlockingStructure" methodname="Move_StopsAtBlockingStructure" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="939820600" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.004320" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="Place_ThenCollect_ReturnsItemToInventory" fullname="Swan.Tests.GameplayTests.Place_ThenCollect_ReturnsItemToInventory" methodname="Place_ThenCollect_ReturnsItemToInventory" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1811974293" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003342" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="Plant_ConsumesSeed_AndHarvestReturnsProduceAndSeed" fullname="Swan.Tests.GameplayTests.Plant_ConsumesSeed_AndHarvestReturnsProduceAndSeed" methodname="Plant_ConsumesSeed_AndHarvestReturnsProduceAndSeed" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1886298225" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.008759" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1048" name="Rocks_AreSeeded_BlockMovement_AndCanBeCollected" fullname="Swan.Tests.GameplayTests.Rocks_AreSeeded_BlockMovement_AndCanBeCollected" methodname="Rocks_AreSeeded_BlockMovement_AndCanBeCollected" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="1914910666" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003291" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="WaterAndFertilize_ApplyTablePowers" fullname="Swan.Tests.GameplayTests.WaterAndFertilize_ApplyTablePowers" methodname="WaterAndFertilize_ApplyTablePowers" classname="Swan.Tests.GameplayTests" runstate="Runnable" seed="291368046" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.003405" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1050" name="HotReloadTests" fullname="Swan.Tests.HotReloadTests" classname="Swan.Tests.HotReloadTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.040147" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1054" name="热重载不会把植物弄丢或串种" fullname="Swan.Tests.HotReloadTests.热重载不会把植物弄丢或串种" methodname="热重载不会把植物弄丢或串种" classname="Swan.Tests.HotReloadTests" runstate="Runnable" seed="65636869" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.009276" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="自检一_改地形扣水速度立刻变快" fullname="Swan.Tests.HotReloadTests.自检一_改地形扣水速度立刻变快" methodname="自检一_改地形扣水速度立刻变快" classname="Swan.Tests.HotReloadTests" runstate="Runnable" seed="1241435343" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.004741" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1053" name="自检三_G02叠乘开关决定了速生是否存在" fullname="Swan.Tests.HotReloadTests.自检三_G02叠乘开关决定了速生是否存在" methodname="自检三_G02叠乘开关决定了速生是否存在" classname="Swan.Tests.HotReloadTests" runstate="Runnable" seed="362101594" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.008222" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1052" name="自检二_改植物生长速度立刻生效" fullname="Swan.Tests.HotReloadTests.自检二_改植物生长速度立刻生效" methodname="自检二_改植物生长速度立刻生效" classname="Swan.Tests.HotReloadTests" runstate="Runnable" seed="1902028586" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.008397" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1055" name="SceneAutoOpenTests" fullname="Swan.Tests.SceneAutoOpenTests" classname="Swan.Tests.SceneAutoOpenTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.002389" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1057" name="主场景不存在时什么都不做" fullname="Swan.Tests.SceneAutoOpenTests.主场景不存在时什么都不做" methodname="主场景不存在时什么都不做" classname="Swan.Tests.SceneAutoOpenTests" runstate="Runnable" seed="1695951426" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000305" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1060" name="主场景在打包列表里且启用" fullname="Swan.Tests.SceneAutoOpenTests.主场景在打包列表里且启用" methodname="主场景在打包列表里且启用" classname="Swan.Tests.SceneAutoOpenTests" runstate="Runnable" seed="492609954" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000323" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1059" name="主场景文件存在" fullname="Swan.Tests.SceneAutoOpenTests.主场景文件存在" methodname="主场景文件存在" classname="Swan.Tests.SceneAutoOpenTests" runstate="Runnable" seed="633293760" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000246" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1058" name="用户已经打开了别的场景就不插手" fullname="Swan.Tests.SceneAutoOpenTests.用户已经打开了别的场景就不插手" methodname="用户已经打开了别的场景就不插手" classname="Swan.Tests.SceneAutoOpenTests" runstate="Runnable" seed="675501730" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000123" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1056" name="空白场景会自动打开主场景" fullname="Swan.Tests.SceneAutoOpenTests.空白场景会自动打开主场景" methodname="空白场景会自动打开主场景" classname="Swan.Tests.SceneAutoOpenTests" runstate="Runnable" seed="626553639" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000109" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1061" name="TerrainAndPlantTests" fullname="Swan.Tests.TerrainAndPlantTests" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.007979" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1066" name="一格只能种一株" fullname="Swan.Tests.TerrainAndPlantTests.一格只能种一株" methodname="一格只能种一株" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="1950879363" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000290" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1068" name="保持水分就能长熟并收获" fullname="Swan.Tests.TerrainAndPlantTests.保持水分就能长熟并收获" methodname="保持水分就能长熟并收获" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="1007626933" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000505" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1062" name="地形跟着数值立刻变" fullname="Swan.Tests.TerrainAndPlantTests.地形跟着数值立刻变" methodname="地形跟着数值立刻变" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="2138689991" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000221" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1064" name="换档防抖让边界来回抖的格不乱跳" fullname="Swan.Tests.TerrainAndPlantTests.换档防抖让边界来回抖的格不乱跳" methodname="换档防抖让边界来回抖的格不乱跳" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="582642769" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000271" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1065" name="水或养分不够时种不下去且说明原因" fullname="Swan.Tests.TerrainAndPlantTests.水或养分不够时种不下去且说明原因" methodname="水或养分不够时种不下去且说明原因" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="764308797" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000198" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1067" name="没熟的植物收不了" fullname="Swan.Tests.TerrainAndPlantTests.没熟的植物收不了" methodname="没熟的植物收不了" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="1206031649" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000162" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1069" name="热源会升温到阈值以上再回归常温" fullname="Swan.Tests.TerrainAndPlantTests.热源会升温到阈值以上再回归常温" methodname="热源会升温到阈值以上再回归常温" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="1950419976" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000353" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1070" name="热源会让邻格也热起来" fullname="Swan.Tests.TerrainAndPlantTests.热源会让邻格也热起来" methodname="热源会让邻格也热起来" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="1678711207" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.001473" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1063" name="生命之泉的水不会减少" fullname="Swan.Tests.TerrainAndPlantTests.生命之泉的水不会减少" methodname="生命之泉的水不会减少" classname="Swan.Tests.TerrainAndPlantTests" runstate="Runnable" seed="1368973015" result="Passed" start-time="2026-11-19 03:50:21Z" end-time="2026-11-19 03:50:21Z" duration="0.000169" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/Administrator/AppData/LocalLow/DefaultCompany/swan-v01\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

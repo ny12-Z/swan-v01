@@ -31,6 +31,8 @@ namespace Swan.Core.Sim
         float[] _evapMul;       // 本步每格的蒸发倍率（L05）
         bool[] _dirty;          // 表现层脏标记
         readonly List<int> _dirtyList = new List<int>();
+        Rng _forageRng;
+        int _forageCount;
 
         // 植物修正值缓存：key = typeId + 性状签名，热重载时整体清空
         readonly Dictionary<long, TraitEffects> _effectCache = new Dictionary<long, TraitEffects>();
@@ -70,6 +72,8 @@ namespace Swan.Core.Sim
             FillBaseline();
 
             if (usePreset) ApplyPreset();
+            SeedForage();
+            SeedRocks();
             RefreshStats();
             MarkAllDirty();
         }
@@ -124,6 +128,16 @@ namespace Swan.Core.Sim
             if (cell.HasPlant)
             {
                 message = "这一格已经有植物了";
+                return false;
+            }
+            if (cell.StructureId != 0)
+            {
+                message = "这一格有放置物，先收回来再种";
+                return false;
+            }
+            if (!string.IsNullOrEmpty(cell.ForageItemId))
+            {
+                message = "这一格有野物，先采集再种";
                 return false;
             }
             if (!_data.Plants.TryGet(typeId, out var type))
@@ -208,6 +222,139 @@ namespace Swan.Core.Sim
             return SetHeatSource(x, y, nowOn);
         }
 
+        /// <summary>放一个结构。结构 id 来自结构表；这里只做占用检查，不碰背包。</summary>
+        public bool TrySetStructure(int x, int y, int structureId, out string message)
+        {
+            if (!Contains(x, y))
+            {
+                message = "坐标越界";
+                return false;
+            }
+            if (!_data.Structures.TryGetRow(structureId, out var structure))
+            {
+                message = $"结构表里没有 {structureId}";
+                return false;
+            }
+
+            int index = IndexOf(x, y);
+            var cell = _cells[index];
+            if (cell.StructureId != 0)
+            {
+                message = "这一格已经有放置物了，先收回来";
+                return false;
+            }
+            if (cell.HasPlant)
+            {
+                message = "这一格有作物，先收获再放";
+                return false;
+            }
+            if (cell.HasHeatSource)
+            {
+                message = "这一格有热源，先关掉再放";
+                return false;
+            }
+            if (!string.IsNullOrEmpty(cell.ForageItemId))
+            {
+                message = "这一格有野物，先采集再放";
+                return false;
+            }
+
+            cell.StructureId = structure.StructureId;
+            _cells[index] = cell;
+            MarkDirty(index);
+            _log.Add($"放置 {structure.Name} @({x},{y})");
+            message = $"放置了{structure.Name}";
+            return true;
+        }
+
+        public bool TryRemoveStructure(int x, int y, out string message)
+        {
+            if (!Contains(x, y))
+            {
+                message = "坐标越界";
+                return false;
+            }
+            int index = IndexOf(x, y);
+            var cell = _cells[index];
+            if (cell.StructureId == 0)
+            {
+                message = "这一格没有放置物";
+                return false;
+            }
+
+            var structure = _data.Structures.Get(cell.StructureId);
+            cell.StructureId = 0;
+            _cells[index] = cell;
+            MarkDirty(index);
+            _log.Add($"收回 {structure.Name} @({x},{y})");
+            message = $"收回了{structure.Name}";
+            return true;
+        }
+
+        public bool TryCollectForage(int x, int y, out string itemId, out int count, out string message)
+        {
+            itemId = null;
+            count = 0;
+            if (!Contains(x, y))
+            {
+                message = "坐标越界";
+                return false;
+            }
+
+            int index = IndexOf(x, y);
+            var cell = _cells[index];
+            if (string.IsNullOrEmpty(cell.ForageItemId))
+            {
+                message = "这一格没有野物";
+                return false;
+            }
+
+            itemId = cell.ForageItemId;
+            count = 1;
+            cell.ForageItemId = null;
+            _cells[index] = cell;
+            _forageCount = Math.Max(0, _forageCount - 1);
+            MarkDirty(index);
+
+            string name = _data.Items.TryGet(itemId, out var item) ? item.Name : itemId;
+            _log.Add($"采集 {name} @({x},{y})");
+            message = $"采集到{name}×{count}";
+            return true;
+        }
+
+        /// <summary>浇水 / 施肥 / 挖掘共用的土质修改。会立即按新数值重判地形，点击后马上看到变化。</summary>
+        public bool TryApplySoil(int x, int y, float waterDelta, float nutrientDelta, out string message)
+        {
+            if (!Contains(x, y))
+            {
+                message = "坐标越界";
+                return false;
+            }
+
+            int index = IndexOf(x, y);
+            var cell = _cells[index];
+            cell.Water = ClampWater(cell.Water + waterDelta);
+            cell.Nutrient = ClampNutrient(cell.Nutrient + nutrientDelta);
+            cell.TerrainId = _data.Terrain.Resolve(cell.Water, cell.Nutrient).TerrainId;
+            _cells[index] = cell;
+            MarkDirty(index);
+
+            message = $"水 {cell.Water:0.#} / 养分 {cell.Nutrient:0.#}（{_data.Terrain.GetById(cell.TerrainId).Name}）";
+            return true;
+        }
+
+        public bool SetWater(int x, int y, float water)
+        {
+            return TryApplySoil(x, y, water - GetCell(x, y).Water, 0f, out _);
+        }
+
+        public bool SetNutrient(int x, int y, float nutrient)
+        {
+            return TryApplySoil(x, y, 0f, nutrient - GetCell(x, y).Nutrient, out _);
+        }
+
+        public int ForageCount => _forageCount;
+
         // ————————————————————————————— 探针/测试用的直接读写 —————————————————————————————
 
         /// <summary>直接设定一格的数值并重判地形（初始地图、对照曲线探针用）。</summary>
@@ -256,6 +403,7 @@ namespace Swan.Core.Sim
             StepTerrainReevaluation();      // 6
             StepHarvestAndStats();          // 7
             Commit();
+            StepForageRegrow();             // 野物缓慢再生（表现/采集用，不参与环境 7 步）
         }
 
         public void StepEnvironment(int times)
@@ -321,7 +469,9 @@ namespace Swan.Core.Sim
                 }
 
                 var effects = EffectsFor(cell);
-                float perStep = type.GrowthPerStep * (_config.StackInitialGrowthTraits ? effects.GrowthMul : 1f);
+                float perStep = type.GrowthPerStep
+                                * (_config.StackInitialGrowthTraits ? effects.GrowthMul : 1f)
+                                * _config.GrowthSpeedMultiplier;
                 if (perStep > 0f && CanGrow(cell, type) && cell.Growth < _config.RipeThreshold)
                 {
                     cell.Growth = Math.Min(cell.Growth + perStep, _config.RipeThreshold);
@@ -484,6 +634,8 @@ namespace Swan.Core.Sim
                 AllocateBuffers();
                 FillBaseline();
                 ApplyPreset();
+                SeedForage();
+                SeedRocks();
                 _envSteps = 0;
                 RefreshStats();
                 MarkAllDirty();
@@ -516,6 +668,17 @@ namespace Swan.Core.Sim
 
                 // 地形表可能改过区间/档位：按新表重判（这里不走 deadband，换了表就该立刻纠正）
                 cell.TerrainId = _data.Terrain.Resolve(cell.Water, cell.Nutrient).TerrainId;
+
+                // 结构/野物可能在新表里被删了：查不到就清掉，避免渲染层拿到悬空 id
+                if (cell.StructureId != 0 && !_data.Structures.TryGetRow(cell.StructureId, out _))
+                {
+                    cell.StructureId = 0;
+                }
+                if (!string.IsNullOrEmpty(cell.ForageItemId) && !_data.Items.Contains(cell.ForageItemId))
+                {
+                    cell.ForageItemId = null;
+                }
+
                 _cells[i] = cell;
             }
 
@@ -530,6 +693,8 @@ namespace Swan.Core.Sim
         {
             FillBaseline();
             ApplyPreset();
+            SeedForage();
+            SeedRocks();
             _envSteps = 0;
             RefreshStats();
             MarkAllDirty();
@@ -614,6 +779,73 @@ namespace Swan.Core.Sim
                 cell.Plant(PlantTypeIdOf(type), CloneTraits(type.InitTraits));
                 _cells[index] = cell;
                 _next[index] = cell;
+            }
+        }
+
+        // ————————————————————————————— 内部：野物 —————————————————————————————
+
+        /// <summary>按采集物表给每个地形铺初始野物。用独立 seed，保证同一张地图每次一样。</summary>
+        void SeedForage()
+        {
+            _forageCount = 0;
+            if (_data.Forage == null) return;   // 单格探针只带最小数据包，没有采集物表
+            _forageRng = new Rng((uint)_config.ForageSeed);
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                Cell cell = _cells[i];
+                cell.ForageItemId = null;
+                if (cell.HasPlant || cell.StructureId != 0 || cell.HasHeatSource) continue;
+                if (!_data.Forage.TryGetForTerrain(cell.TerrainId, out var row)) continue;
+                if (_forageRng.NextFloat() >= row.Chance) continue;
+                cell.ForageItemId = row.ItemId;
+                _cells[i] = cell;
+                _next[i] = cell;
+                _forageCount++;
+            }
+        }
+
+        /// <summary>
+        /// 按 config.rockChance 在地表铺岩石结构。岩石挡路/挡种，用「采集」可以搬走换回 stone。
+        /// 确定性：同一个 rockSeed 永远得到同一批落点，方便复现和测试。
+        /// </summary>
+        void SeedRocks()
+        {
+            if (_config.RockChance <= 0f || _config.RockStructureId <= 0) return;
+            if (_data.Structures == null || !_data.Structures.TryGetRow(_config.RockStructureId, out _)) return;
+
+            var rng = new Rng((uint)_config.RockSeed);
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                Cell cell = _cells[i];
+                if (cell.HasPlant || cell.StructureId != 0 || cell.HasHeatSource || cell.HasForage) continue;
+                if (cell.Water > _config.WalkableMaxWater) continue;   // 深水里不铺石头
+                if (rng.NextFloat() >= _config.RockChance) continue;
+
+                cell.StructureId = _config.RockStructureId;
+                _cells[i] = cell;
+                _next[i] = cell;
+                MarkDirty(i);
+            }
+        }
+
+        /// <summary>环境步结束后，空地上以很低概率长出新的野物；总数不超过 config.forageMaxCount。</summary>
+        void StepForageRegrow()
+        {
+            if (_data.Forage == null) return;
+            if (_forageRng == null) _forageRng = new Rng((uint)_config.ForageSeed);
+            if (_config.ForageRegrowChance <= 0f || _forageCount >= _config.ForageMaxCount) return;
+
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                if (_forageCount >= _config.ForageMaxCount) break;
+                Cell cell = _cells[i];
+                if (cell.HasPlant || cell.StructureId != 0 || cell.HasHeatSource || cell.HasForage) continue;
+                if (!_data.Forage.TryGetForTerrain(cell.TerrainId, out var row)) continue;
+                if (_forageRng.NextFloat() >= _config.ForageRegrowChance) continue;
+                cell.ForageItemId = row.ItemId;
+                _cells[i] = cell;
+                _forageCount++;
+                MarkDirty(i);
             }
         }
 
@@ -776,7 +1008,10 @@ namespace Swan.Core.Sim
                     || now.HasHeatSource != before.HasHeatSource
                     || now.HasPlant != before.HasPlant
                     || now.PlantTypeId != before.PlantTypeId
+                    || now.StructureId != before.StructureId
+                    || !string.Equals(now.ForageItemId, before.ForageItemId)
                     || now.Harvestable != before.Harvestable
+                    || Math.Abs(now.Growth - before.Growth) > 1e-4f
                     || Math.Abs(now.Temperature - before.Temperature) > 1e-4f)
                 {
                     MarkDirty(i);
